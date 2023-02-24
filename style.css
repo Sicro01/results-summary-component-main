@@ -170,12 +170,12 @@ main {
 @media screen and (min-width: 751px) {
   .result {
     margin-top: 0;
-    grid-template-columns: auto 375px 375px;
+    grid-template-columns: auto 375px 375px auto;
     grid-template-rows: 1fr auto 1fr;
     grid-template-areas:
-      ". . ."
-      ". result-summary result-detail"
-      "attribution attribution attribution"
+      ". . . ."
+      ". result-summary result-detail ."
+      "attribution attribution attribution attribution"
     ;
   }
 }
