@@ -7,7 +7,7 @@ const createScoresHTML = ({
     `
 <div class="flex-group result__detail-area ${className}">
     <p class="flex-group">
-        <img class="icon" src="${icon}" />
+        <img class="icon" src="${icon}" alt="${category} icon"/>
         <span>${category}</span>
     </p>
     <div>
@@ -17,26 +17,20 @@ const createScoresHTML = ({
 </div>
     `;
 
-// create html for each score
 
-// add each score to html
-// scores.forEach(score => {
-//     scoresEl.innerHTML += score;
-//     console.log(score);
-// })
-
-// add each score to html
 const scoresEl = document.getElementById("scores")
 async function displayScores() {
     const response = await fetch('data.json')
     const sourceData = await response.json()
+    // create html for each score
     const data = sourceData.map(scoreData => ({ ...scoreData, className: scoreData.category.toLowerCase() }))
+    console.log(data);
     const scores = data.map(createScoresHTML)
-
+    console.log(scores);
+    // add each score to html
     scores.forEach(score => {
-        // res = obj.category == "Reaction" ? obj.score : null
-        // console.log(res);
         scoresEl.innerHTML += score;
+        console.log(score);
     });
 }
 displayScores();
